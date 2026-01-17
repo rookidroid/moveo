@@ -98,38 +98,38 @@ void setup() {
   Serial.println(myIP);
 
   ArduinoOTA
-  .onStart([]() {
-    String type;
-    if (ArduinoOTA.getCommand() == U_FLASH) {
-      type = "sketch";
-    } else {  // U_SPIFFS
-      type = "filesystem";
-    }
+    .onStart([]() {
+      String type;
+      if (ArduinoOTA.getCommand() == U_FLASH) {
+        type = "sketch";
+      } else {  // U_SPIFFS
+        type = "filesystem";
+      }
 
-    // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS
-    // using SPIFFS.end()
-    Serial.println("Start updating " + type);
-  })
-  .onEnd([]() {
-    Serial.println("\nEnd");
-  })
-  .onProgress([](unsigned int progress, unsigned int total) {
-    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
-  })
-  .onError([](ota_error_t error) {
-    Serial.printf("Error[%u]: ", error);
-    if (error == OTA_AUTH_ERROR) {
-      Serial.println("Auth Failed");
-    } else if (error == OTA_BEGIN_ERROR) {
-      Serial.println("Begin Failed");
-    } else if (error == OTA_CONNECT_ERROR) {
-      Serial.println("Connect Failed");
-    } else if (error == OTA_RECEIVE_ERROR) {
-      Serial.println("Receive Failed");
-    } else if (error == OTA_END_ERROR) {
-      Serial.println("End Failed");
-    }
-  });
+      // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS
+      // using SPIFFS.end()
+      Serial.println("Start updating " + type);
+    })
+    .onEnd([]() {
+      Serial.println("\nEnd");
+    })
+    .onProgress([](unsigned int progress, unsigned int total) {
+      Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+    })
+    .onError([](ota_error_t error) {
+      Serial.printf("Error[%u]: ", error);
+      if (error == OTA_AUTH_ERROR) {
+        Serial.println("Auth Failed");
+      } else if (error == OTA_BEGIN_ERROR) {
+        Serial.println("Begin Failed");
+      } else if (error == OTA_CONNECT_ERROR) {
+        Serial.println("Connect Failed");
+      } else if (error == OTA_RECEIVE_ERROR) {
+        Serial.println("Receive Failed");
+      } else if (error == OTA_END_ERROR) {
+        Serial.println("End Failed");
+      }
+    });
 
   ArduinoOTA.begin();
 
@@ -152,9 +152,8 @@ void setup() {
   if (j1_stepper) {
     j1_stepper->setDirectionPin(J1_DIR);
 
-    j1_stepper->setSpeedInHz(3000);       // 3000 steps/s
-    j1_stepper->setAcceleration(800);    // 800 steps/s²
-
+    j1_stepper->setSpeedInHz(3000);    // 3000 steps/s
+    j1_stepper->setAcceleration(800);  // 800 steps/s²
   }
   //  j1_stepper->moveTo(1000, true);
   //  j1_stepper->moveTo(-1000, true);
@@ -164,9 +163,8 @@ void setup() {
   if (j2_stepper) {
     j2_stepper->setDirectionPin(J2_DIR);
 
-    j2_stepper->setSpeedInHz(3000);       // 3000 steps/s
-    j2_stepper->setAcceleration(800);    // 800 steps/s²
-
+    j2_stepper->setSpeedInHz(3000);    // 3000 steps/s
+    j2_stepper->setAcceleration(800);  // 800 steps/s²
   }
   //  j2_stepper->moveTo(2000, true);
   //  j2_stepper->moveTo(-2000, true);
@@ -176,9 +174,8 @@ void setup() {
   if (j3_stepper) {
     j3_stepper->setDirectionPin(J3_DIR);
 
-    j3_stepper->setSpeedInHz(3000);       // 3000 steps/s
-    j3_stepper->setAcceleration(800);    // 800 steps/s²
-
+    j3_stepper->setSpeedInHz(3000);    // 3000 steps/s
+    j3_stepper->setAcceleration(800);  // 800 steps/s²
   }
   //  j3_stepper->moveTo(2000, true);
   //  j3_stepper->moveTo(-2000, true);
@@ -188,9 +185,8 @@ void setup() {
   if (j4_stepper) {
     j4_stepper->setDirectionPin(J4_DIR);
 
-    j4_stepper->setSpeedInHz(3000);       // 3000 steps/s
-    j4_stepper->setAcceleration(800);    // 800 steps/s²
-
+    j4_stepper->setSpeedInHz(3000);    // 3000 steps/s
+    j4_stepper->setAcceleration(800);  // 800 steps/s²
   }
   //  j4_stepper->moveTo(2000, true);
   //  j4_stepper->moveTo(-2000, true);
@@ -200,14 +196,12 @@ void setup() {
   if (j5_stepper) {
     j5_stepper->setDirectionPin(J5_DIR);
 
-    j5_stepper->setSpeedInHz(3000);       // 3000 steps/s
-    j5_stepper->setAcceleration(800);    // 800 steps/s²
-
+    j5_stepper->setSpeedInHz(3000);    // 3000 steps/s
+    j5_stepper->setAcceleration(800);  // 800 steps/s²
   }
   //  j5_stepper->moveTo(2000, true);
   //  j5_stepper->moveTo(-2000, true);
   //  j5_stepper->moveTo(0, true);
-
 }
 
 void loop() {
