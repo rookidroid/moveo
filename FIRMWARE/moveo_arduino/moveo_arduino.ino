@@ -45,8 +45,8 @@
 
 /** Async Web Server
  *  Install via Arduino Library Manager:
- *    - "ESPAsyncWebServer" by lacamera (or me-no-dev)
- *    - "AsyncTCP" by dvarrel (or me-no-dev)  ← required dependency
+ *    - "ESPAsyncWebServer" by ESP32Async
+ *    - "AsyncTCP" by ESP32Async  ← required dependency
  */
 #include <ESPAsyncWebServer.h>
 
